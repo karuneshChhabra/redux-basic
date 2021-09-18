@@ -7,7 +7,8 @@ export const initialValue = {
 };
 
 export const incrementDecrementReducers = (state = initialValue, action) => {
-  switch (action.type) {
+    console.log("incrementDecrementReducers",action);
+   switch (action.type) {
     case constants.INCREMENT_VALUE:
       return { ...state, value: state.value + action.payload };
     case constants.DECREMENT_VALUE:
