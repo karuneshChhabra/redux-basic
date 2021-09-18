@@ -1,36 +1,32 @@
-import './App.css';
-import TimeForm from './TimeForm';
-import {connect} from "react-redux";
-import {incrementValue, decrementValue} from './redux/actions/index';
+import "./App.css";
+import TimeForm from "./TimeForm";
+import { connect } from "react-redux";
+import { incrementValue, decrementValue } from "./redux/actions/index";
 
 function App(props) {
-
   return (
     <div className="App">
       <button onClick={props.incValue}>Increment Value</button>
-         <h1>Current Value: {props.value}</h1>
+      <h1>Current Value: {props.value}</h1>
       <button onClick={props.decValue}>Decrement Value</button>
-      <br/>
-      <br/>
+      <br />
+      <br />
 
-      <TimeForm>
-
-      </TimeForm>
-      
+      <TimeForm></TimeForm>
     </div>
   );
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   console.log(state);
   return {
-    value:state.incrementDecrementReducers.value
-  }
+    value: state.incrementDecrementReducers.value,
+  };
 };
 
-const mapDispatchToProps = dispatch => ({
-  incValue:() => dispatch(incrementValue()),
-  decValue:()  =>dispatch(decrementValue())
-})
+const mapDispatchToProps = (dispatch) => ({
+  incValue: () => dispatch(incrementValue()),
+  decValue: () => dispatch(decrementValue()),
+});
 
-export default connect(mapStateToProps,mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
